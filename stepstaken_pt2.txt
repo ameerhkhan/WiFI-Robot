@@ -1,0 +1,88 @@
+For our ML App that will detect objects in a live feed or a video,
+
+    > python manage.py startapp Objector
+
+Now onto the models.
+
+For our model, we will have the following fields,
+
+    - detected_object --> The object that has been detected.
+    - accuracy_score --> The score of accuracy associated with the detected object.
+    - bounding_box --> The bounding box co-ordinates associated with the detection.
+
+Now after creating the Model, we need to apply the migrations,
+
+    > python manage.py makemigrations Objector
+    > python manage.py migrate Objector
+
+We will not be filling the database with the shell, rather our script will be filling up our database.
+
+
+Now we will define views.py.
+Our view will show our video with detections.
+Our view will also show the detections and their associated scores in a separate column.
+
+Most probably using PLOTLY!!
+
+LET's create the views then.. Shall we?
+
+Created the VIEW?
+What about the HTML file???
+
+Let's do that now.
+
+Maybe I need to initiate my detection script in the views.py of the app?
+
+Will find out shortly!
+
+The Stream needs to be done inside the views.py file.
+
+The stream needs to be initiated there, also the frames need to be grabbed there as well.
+After grabbing the frame its needs to be processed and the resulting frame requires to be encoded.
+
+Currently Video is not streaming but the program seems to be working.
+
+Following is a possible solution to streaming,
+
+"""
+
+# One possible solution
+# class VideoCamera(object):
+#     def __init__(self):
+#         self.video = cv2.VideoCapture(0)
+#         (self.grabbed, self.frame) = self.video.read()
+#         threading.Thread(target=self.update, args=()).start()
+
+#     def __del__(self):
+#         self.video.release()
+
+#     def get_frame(self):
+#         image = self.frame
+#         ret, jpeg = cv2.imencode('png', image)
+#         return jpeg.tobytes()
+
+#     def update(self):
+#         while True:
+#             (self.grabbed, self.frame) = self.video.read()
+
+# cam = VideoCamera()
+
+# def gen(camera):
+#     while True:
+#         frame = cam.get_frame()
+
+# #         frame_b64 = base64.b64encode(enc_frame)
+# #         return(frame_b64)
+#         yield(b'--frame\r\n'
+#         b'Content-TypeL image/png\r\n\r\n' + frame + b'\r\n\r\n')
+
+# @gzip.gzip_page
+# def livefe(request):
+#     try:
+#         return StreamingHttpResponse(gen(VideoCamera()), content_type="multipart/x-mixed-replace;boundary=frame")
+#     except HttpResponseServerError as e:
+#         print("Server Error..... Aborting.")
+
+
+"""
+

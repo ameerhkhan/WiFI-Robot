@@ -1,0 +1,37 @@
+This project must accomplish the following goals,
+
+1 - Control a small scale vehicle over Wi-Fi
+2 - Stream video with real time object detection.
+
+Hardware to be used,
+- Raspberry Pi 3.
+- Pi NoIR Camera.
+- L293d H-Bridge Motor Driver
+- R/C Car with motor and battery.
+- Servo motor for steering.
+- Ultrasonic sensor.
+- Arduino for controlling the motors.
+
+Project Overview,
+
+The aim of this project is to develop a rover which can be controlled over wifi while being able to provide a
+livestream of the environment using an onboard camera.
+
+In the video stream, the system should show objects detected using object detection via deep learning.
+An ultrasonic sensor should also give out the distance to the object in its path.
+
+Project Breakdown,
+Server side,
+A program running on the server should be able to display the stream as well as the controls for controlling the vehicle.
+The server should store all the objects detected in a csv file along with a timestamp.
+Object detection will also be performed server side for faster processing. Limited processing power on the Raspberry Pi
+would hamper the overall performance of the system.
+
+Raspberry Pi side,
+The Pi will be responsible for moving the vehicle while streaming the video as well.
+The Pi will be connected to an Arduino that will receive commands from the Pi and run the driving motor as well as the servo
+accordingly.
+The pi will also take note of values coming from the ultrasonic sensor to avoid any collision with an object.
+
+
+More points will be added as they come by.

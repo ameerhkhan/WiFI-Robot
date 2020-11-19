@@ -1,0 +1,14 @@
+virtual Environment for this project
+wcv_project
+
+WCV --> WiFi Controlled Vehicle
+
+following commands issued
+x pip install pandas
+x pip install tensorflow
+x pip install scikit-learn
+x pip install opencv-python
+x pip install django
+pip install matplotlib
+pip install dash
+xpip install imutils

@@ -1,0 +1,122 @@
+We'll start off by initiating a DJANGO Project using,
+    
+    > django-admin startproject wcvo_django
+
+wcvo --> WiFi Controlled Vehicle with Object Detection.
+
+Check to create if command was successful,
+
+    > python manage.py runserver
+
+Now we will create an app that will handle our things.
+First we will create a portfolio application to get the hang of things.
+
+First let's create a base template folder within wcvo_django folder which will hold the 
+styling and base html components for all the apps in this Django Project.
+
+This is to save us from repeating the same code again and again.
+Create base.html in the templates folder and insert code from previous tutorials.
+
+Now we will update settings.py, more specifically the templates list in that file.
+
+Now let's showcase our projects.
+
+For that we will have to create a new app called Portfolio.
+Do this by running,
+
+    > python manage.py startapp portfolio
+
+Add this new app in INSTALLED_APPS list in wcvo_django/settings.py
+
+Now let's create our Portfolio model.
+MODEL --> Defines the data structure. This is usually the database and is the base layer to an application.
+
+DJANGO has built in ORM --> Object Relational Mapper to substitute writing SQL to get data.
+In Django's ORM,
+A Python CLASS' attributes correspond to columns of DB.
+Whereas each instance of the class correspond to a specific DATA or specific ROW.
+THE CLASS itself represents a TABLE/ SHEET.
+
+The classes we build that represent database tables are called models.
+They live in models.py module of each app.
+
+The model we will create will be called Portfolio and it will have the following fields.
+    - title
+    - description
+    - technology
+    - image
+
+To create this model we'll create a new class in portfolio/models.py
+
+Now we will need to create a new DATABASE.
+For all small applications we can use SQLite which is built into Python/Django.
+
+To start the process of DATABASE generation, we need to create a migration first.
+Issue the following commands,
+
+    > python manage.py makemigrations portfolio
+    > python manage.py migrate portfolio
+
+Now to create new projects, we will make use of Python Shell. Using,
+
+    > python manage.py shell
+
+Following is a list of command used in the shell,
+    :::>><<:::
+    > from portfolio.models import Portfolio
+    > p1 = Portfolio(
+    ... title='My First Project',
+    ... description='A web development Project',
+    ... technology='Django',
+    ... image='img/project1.png'
+    ... )
+    > p1.save()
+    :::>><<:::
+
+In the same way generate as many projects as you wish.
+
+
+Now we will define views.py in our portfolio app to show the world our projects.
+
+In the portfolio app we will create two different views.
+    1 - An index view of all the the projects.
+    2 - A detailed view of a particular/selected project.
+Both of them will reside in the app's views.py script.
+
+We will need to import the Portfolio class from models.py into the view as well.
+Let's start with index view.
+
+Once the view functions are created, we need to hook them up to URLs.
+create a file inside the app called urls.py to hold all the URL configurations for the app.
+
+
+Now let's create the HTML template for our app.
+
+Using bootstrap we can use some pre-styled components to make the views look nice.
+
+Create the template folder in the current app's directory.
+Now create the two HTML files.
+project_detail.html and project_index.html
+
+And this has now created our Django Portfolio app.
+
+
+AND now onto the main event.
+
+DID we forget to add the URL of our app into the main project APP??
+
+DO THAT!!
+
+
+----------------------------------------------
+
+WIFI Controlled Car with Object Detection.
+
+----------------------------------------------
+
+
+
+
+
+
+

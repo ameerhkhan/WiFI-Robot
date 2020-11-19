@@ -1,0 +1,22 @@
+ {% extends "base.html" %} {% load static %} {% block page_content %}
+<title>All Projects</title>
+<h1>Projects</h1>
+<div class="row">
+    <!-- For loop by Django-->
+    {% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <!-- Dot notation can be used to access specifics such as project.title etc..-->
+            <img class="img-card-top" src="{% static project.image %}">
+            <!-- The static above in src tells Django to look in the static files in static folder.-->
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <!-- Accessing urls in Django is same as accessing static files and has the following form..-->
+                <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

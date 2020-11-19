@@ -1,0 +1,36 @@
+<!-- @5.1 -->
+<!-- {% extends "base.html" %}  -->
+{% load static %} {% block page_content %}
+
+<!-- Halfmoon CSS -->
+<link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.4/css/halfmoon.min.css" rel="stylesheet" />
+
+
+<!-- Halfmoon JS -->
+<script src="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.4/js/halfmoon.min.js"></script>
+
+<title>{{ project.title }}</title>
+<h1>{{ project.title }}</h1>
+<div class="row">
+    <!-- <div class="card"> -->
+    <!-- <div class="col-md-8"> -->
+    <div class="card p-0">
+        <img src="{% static project.image %}" alt="" width="100%" class="img-fluid rounded-top">
+    </div>
+    <div class="content">
+        <h2 class="content-title font-size-22">About the Project:</h2>
+        <p>{{ project.description }}</p>
+        <br>
+        <h2 class="card-title">Technology used:</h2>
+        <p>{{ project.technology }}</p>
+    </div>
+</div>
+
+<button class="btn btn-primary active" type="button" onclick="toggleDemo()">Dark Mode</button>
+<script type="text/javascript">
+    // Dark mode toggle demo
+    function toggleDemo() {
+        halfmoon.toggleDarkMode();
+    }
+</script>
+{% endblock %}
